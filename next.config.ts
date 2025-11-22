@@ -1,13 +1,17 @@
 import type { NextConfig } from "next";
 
+// Depo adınızı buraya yazın (Örneğin: '/ramazan_website')
+const REPO_NAME = '/ramazan_aydinli_website'; 
+
 const nextConfig: NextConfig = {
-  // Statik dışa aktarmayı etkinleştirir.
+  // Statik dışa aktarmayı etkinleştirir
   output: 'export',
-  
-  // Derleme çıktı klasörünü, GitHub Pages'ın yayımlaması için doğru yer olan 'out' olarak ayarlar.
   distDir: 'out', 
 
-  // Statik yayınlama için Next.js Image bileşeninin optimize edilmesini devre dışı bırakır.
+  // Next.js'e CSS ve JS gibi varlıkları doğru yoldan yüklemesini söyler.
+  basePath: REPO_NAME,
+  assetPrefix: REPO_NAME,
+
   images: {
     unoptimized: true,
   },
