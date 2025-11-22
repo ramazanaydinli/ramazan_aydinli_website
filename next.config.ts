@@ -1,6 +1,6 @@
 import type { NextConfig } from "next";
 
-// Depo adınızı buraya yazın (Örneğin: '/ramazan_website')
+// Depo adınızı buraya tanımlıyoruz (Başına "/" eklemeyi unutmayın)
 const REPO_NAME = '/ramazan_aydinli_website'; 
 
 const nextConfig: NextConfig = {
@@ -16,7 +16,7 @@ const nextConfig: NextConfig = {
     unoptimized: true,
   },
 
-  /* Mevcut diğer ayarlarınızı buraya ekleyin */
+  /* Mevcut diğer ayarlarınız (varsa) */
   reactCompiler: true, 
 };
 
