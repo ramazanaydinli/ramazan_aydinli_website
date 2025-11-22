@@ -1,108 +1,251 @@
+// lib/dictionary.ts
 export type Language = 'en' | 'tr';
 
 export const dictionary = {
     en: {
         nav: {
-            about: 'About',
-            experience: 'Experience',
-            skills: 'Skills',
-            contact: 'Contact',
-        },
-        hero: {
-            greeting: 'Hello, I am',
-            role: 'Computer Vision Engineer',
-            description: 'Specializing in deep learning, image processing, and building intelligent systems that perceive and understand the world.',
-            viewProjects: 'View Projects',
+            status: 'OPEN TO INNOVATION',
+            projects: 'PROJECTS',
+            skills: 'SKILLS',
+            background: 'BACKGROUND',
+            contact: 'CONTACT',
             downloadCv: 'Download CV',
         },
-        about: {
-            title: 'About Me',
-            p1: 'I am a passionate Computer Vision Engineer based in Ankara, Turkey. With a strong foundation in Civil Engineering and Information Systems, I have transitioned into the world of AI to solve complex problems using visual data.',
-            p2: 'Currently, I work at CareMed, developing cutting-edge systems that combine RGB and infrared cameras with MRI data for medical applications. My expertise lies in Deep Learning, Image Processing, and real-time system integration.',
-            p3: 'I am driven by the challenge of teaching machines to "see" and interpreting that data to create meaningful, real-world solutions.',
+        hero: {
+            role: 'AI & COMPUTER VISION ENGINEER',
+            titlePrefix: 'ARCHITECTING',
+            titleSuffix: 'INTELLIGENCE',
+            description: 'Architecting high-performance Artificial Intelligence systems driven by Deep Learning and Computer Vision to solve complex visual perception challenges.',
+            stats: {
+                projectsValue: '4+',
+                projectsLabel: 'Major AI Pipelines',
+                expValue: 'BS + MS', 
+                expLabel: 'Double Discipline', 
+            },
+            tmmob: {
+                title: 'TMMOB AI Working Group',
+                desc: 'Representing the Chamber of Civil Engineers in national AI workshops and strategic planning.'
+            },
+            certificates: {
+                title: '// Certifications & Badges',
+                c1: { 
+                    name: 'TensorFlow Developer', 
+                    issuer: 'Google', 
+                    url: 'https://www.credential.net/28534234-23c5-40a7-99ed-a29c974feb0e#acc.6jGpR978', 
+                    logo: '/images/google.png' 
+                },
+                c2: { 
+                    name: 'GANs Specialization', 
+                    issuer: 'DeepLearning.AI', 
+                    url: 'https://www.coursera.org/account/accomplishments/specialization/certificate/BU9JKWNCXXFE', 
+                    logo: '/images/deeplearning-ai.png' 
+                },
+                c3: { 
+                    name: 'Advanced Computer Vision', 
+                    issuer: 'DeepLearning.AI', 
+                    url: 'https://www.coursera.org/account/accomplishments/certificate/5H2BQYH38LXW', 
+                    logo: '/images/deeplearning-ai.png' 
+                },
+                c4: { 
+                    name: 'Deep Neural Networks w/ PyTorch', 
+                    issuer: 'IBM', 
+                    url: 'https://www.coursera.org/account/accomplishments/certificate/EVDCPDVXGUCR', 
+                    logo: '/images/ibm.png' 
+                }
+            },
+            buttons: {
+                contact: 'Contact Me',
+                download: 'Download CV'
+            }
         },
-        experience: {
-            title: 'Experience',
-            caremed: {
-                role: 'Computer Vision Engineer',
-                desc1: 'Initial project: Determining the three-dimensional coordinates of the head using data from RGB and infrared cameras, and mapping this image in real-time with MRI images. Several deep learning and image processing algorithms used for the project.',
-                desc2: 'Latest Project: In response to the strict data security and privacy regulations in Europe, we developed a system that uses on-device mobile phone models for pixel-based detection of an individual\'s body and limb locations. This technology then leverages image processing and analytical geometry to visualize, record, and provide personalized recommendations for physiotherapy exercises. The core purpose of the project was to build a mobile-first assistant that guarantees maximum data security by processing information locally and sharing only pertinent data with medical professionals.',
+        projects: {
+            title: '// Selected Works & Pipelines',
+            p1: {
+                title: "Drone-Based Site Safety Pipeline",
+                desc: "Autonomous surveillance pipeline processing drone footage to detect safety violations (PPE compliance, high-altitude workers) at construction sites in real-time.",
+                tag: "INDUSTRIAL AI"
             },
-            mergen: {
-                role: 'Back-End Developer',
-                desc: 'Back-end development tasks for the hospital automation system using Java and MySQL.',
+            p2: {
+                title: "Visual QA & Img2Text Engine",
+                desc: "End-to-end pipeline converting geometric shapes into structured text prompts for LLMs to automatically solve visual geometry problems.",
+                tag: "GENERATIVE AI"
             },
-            deeplearning: {
-                role: 'Machine Learning Tester',
-                desc: 'Testing artificial intelligence code related to the recommendation system. Tensorflow and Python used for this project.',
+            p3: {
+                title: "Medical AR Navigation System",
+                desc: "Real-time 3D coordinate mapping system merging RGB-Depth sensor data with pre-op MRI scans for surgical guidance.",
+                tag: "MEDICAL TECH"
             },
+            p4: {
+                title: "Privacy-First Physio Assistant",
+                desc: "On-device mobile CV system for physiotherapy. Performs pixel-level body & limb tracking locally without cloud dependency.",
+                tag: "EDGE AI"
+            }
         },
         skills: {
-            title: 'Skills',
-            technical: 'Technical Skills',
-            languages: 'Languages',
-            lang: {
-                english: 'English',
-                turkish: 'Turkish',
-                advanced: 'Advanced',
-                native: 'Native',
+            title: '// TECHNICAL ARSENAL',
+            categories: {
+                // GÜNCELLENDİ: Görseldeki başlıklarla birebir aynı yapıldı
+                languages: 'CORE & LANGUAGES',
+                frameworks: 'AI & VISION STACK',
+                tools: 'SYSTEM & TOOLS'
             },
+            level: {
+                expert: 'Expert',
+                proficient: 'Proficient',
+                competent: 'Competent',
+                fundamental: 'Fundamental'
+            }
         },
-        contact: {
-            title: 'Get In Touch',
-            description: 'I am currently open to new opportunities and collaborations in the field of Computer Vision and AI. Whether you have a question or just want to say hi, feel free to reach out!',
+        education: {
+            title: '// Academic Background',
+            hacettepe: {
+                school: 'Hacettepe University',
+                degree: 'M.Sc. Information Systems',
+                date: '2022 — 2024',
+                desc: 'Focused on Deep Learning, Computer Vision, and Advanced Data Structures.'
+            },
+            odtu: {
+                school: 'Middle East Technical University (METU)',
+                degree: 'B.Sc. Civil Engineering',
+                date: '2014 — 2021',
+                desc: 'Gained strong analytical foundation in structural mechanics and engineering mathematics.'
+            }
         },
+        contactSection: {
+            title: '// Get In Touch',
+            heading: 'Ready to build intelligent systems?',
+            desc: 'I am currently open to new opportunities in Computer Vision and AI Engineering. Whether you have a question or just want to say hi, my inbox is always open.',
+            emailBtn: 'Send Email',
+            linkedinBtn: 'Connect on LinkedIn'
+        },
+        footer: {
+            name: 'RAMAZAN AYDINLI',
+            role: 'AI & Computer Vision Engineer',
+            rights: 'All rights reserved.',
+            built: 'Built with Next.js & Tailwind'
+        }
     },
     tr: {
         nav: {
-            about: 'Hakkımda',
-            experience: 'Deneyim',
-            skills: 'Yetenekler',
-            contact: 'İletişim',
-        },
-        hero: {
-            greeting: 'Merhaba, Ben',
-            role: 'Bilgisayarlı Görü Mühendisi',
-            description: 'Derin öğrenme, görüntü işleme ve dünyayı algılayan ve anlayan akıllı sistemler inşa etme konusunda uzmanım.',
-            viewProjects: 'Projeleri Gör',
+            status: 'İNOVASYONA AÇIK',
+            projects: 'PROJELER',
+            skills: 'YETENEKLER',
+            background: 'GEÇMİŞ',
+            contact: 'İLETİŞİM',
             downloadCv: 'CV İndir',
         },
-        about: {
-            title: 'Hakkımda',
-            p1: 'Ankara, Türkiye\'de yaşayan tutkulu bir Bilgisayarlı Görü Mühendisiyim. İnşaat Mühendisliği ve Bilişim Sistemleri temelimle, görsel verileri kullanarak karmaşık problemleri çözmek için yapay zeka dünyasına geçiş yaptım.',
-            p2: 'Şu anda CareMed\'de, tıbbi uygulamalar için RGB ve kızılötesi kameraları MRI verileriyle birleştiren son teknoloji sistemler geliştiriyorum. Uzmanlığım Derin Öğrenme, Görüntü İşleme ve gerçek zamanlı sistem entegrasyonu üzerinedir.',
-            p3: 'Makinelere "görmeyi" öğretme ve bu verileri anlamlı, gerçek dünya çözümleri yaratmak için yorumlama zorluğuyla motive oluyorum.',
+        hero: {
+            role: 'YAPAY ZEKA & GÖRÜNTÜ İŞLEME MÜHENDİSİ',
+            titlePrefix: 'ZEKAYI',
+            titleSuffix: 'TASARLAMAK',
+            description: 'Karmaşık problemleri çözmek için Derin Öğrenme ve Bilgisayarlı Görü destekli, yüksek performanslı Yapay Zeka sistemleri tasarlamaktayım.',
+            stats: {
+                projectsValue: '4+',
+                projectsLabel: 'YAPAY ZEKA SİSTEMİ',
+                expValue: 'LİSANS + YL',
+                expLabel: 'YÜKSEK MÜHENDİS',
+            },
+            tmmob: {
+                title: 'TMMOB Yapay Zeka Çalışma Grubu',
+                desc: 'İnşaat Mühendisleri Odası\'nı temsilen ulusal yapay zeka çalıştaylarında ve stratejik planlamalarda yer alıyorum.'
+            },
+            certificates: {
+                title: '// SERTİFİKALAR & ROZETLER',
+                c1: { 
+                    name: 'TensorFlow Geliştirici Sertifikası', 
+                    issuer: 'Google', 
+                    url: 'https://www.credential.net/28534234-23c5-40a7-99ed-a29c974feb0e#acc.6jGpR978', 
+                    logo: '/images/google.png' 
+                },
+                c2: { 
+                    name: 'GANs Uzmanlığı Sertifikası', 
+                    issuer: 'DeepLearning.AI', 
+                    url: 'https://www.coursera.org/account/accomplishments/specialization/certificate/BU9JKWNCXXFE', 
+                    logo: '/images/deeplearning-ai.png' 
+                },
+                c3: { 
+                    name: 'İleri Bilgisayarlı Görü Sertifikası', 
+                    issuer: 'DeepLearning.AI', 
+                    url: 'https://www.coursera.org/account/accomplishments/certificate/5H2BQYH38LXW', 
+                    logo: '/images/deeplearning-ai.png' 
+                },
+                c4: { 
+                    name: 'PyTorch ile Derin Sinir Ağları Sertifikası', 
+                    issuer: 'IBM', 
+                    url: 'https://www.coursera.org/account/accomplishments/certificate/EVDCPDVXGUCR', 
+                    logo: '/images/ibm.png' 
+                }
+            },
+            buttons: {
+                contact: 'İletişime Geç',
+                download: 'CV İndir'
+            }
         },
-        experience: {
-            title: 'Deneyim',
-            caremed: {
-                role: 'Bilgisayarlı Görü Mühendisi',
-                desc1: 'İlk proje: RGB ve kızılötesi kameralardan alınan verileri kullanarak başın üç boyutlu koordinatlarını belirlemek ve bu görüntüyü MRI görüntüleri ile gerçek zamanlı olarak eşleştirmek. Proje için çeşitli derin öğrenme ve görüntü işleme algoritmaları kullanıldı.',
-                desc2: 'Son Proje: Avrupa\'daki katı veri güvenliği ve gizlilik düzenlemelerine yanıt olarak, bireyin vücut ve uzuv konumlarının piksel tabanlı tespiti için cihaz içi (on-device) cep telefonu modellerini kullanan bir sistem geliştirdik. Bu teknoloji daha sonra fizyoterapi egzersizleri için görselleştirme, kayıt ve kişiselleştirilmiş öneriler sunmak üzere görüntü işleme ve analitik geometriden yararlanır. Projenin temel amacı, bilgileri yerel olarak işleyerek ve yalnızca ilgili verileri tıp uzmanlarıyla paylaşarak maksimum veri güvenliğini garanti eden mobil öncelikli bir asistan oluşturmaktı.',
+        projects: {
+            title: '// SEÇİLİ İŞLER & SİSTEMLER',
+            p1: {
+                title: "Drone Tabanlı Saha Güvenliği",
+                desc: "Şantiyelerdeki güvenlik ihlallerini (baret/halat kontrolü) gerçek zamanlı tespit etmek için drone görüntülerini işleyen otonom gözetim sistemi.",
+                tag: "ENDÜSTRİYEL YZ"
             },
-            mergen: {
-                role: 'Back-End Geliştirici',
-                desc: 'Java ve MySQL kullanılarak hastane otomasyon sistemi için arka uç geliştirme görevleri.',
+            p2: {
+                title: "Görsel Soru Cevaplama Motoru",
+                desc: "Geometrik şekilleri algılayıp yapılandırılmış metne dönüştüren ve LLM'leri kullanarak görsel problemleri çözen uçtan uca sistem.",
+                tag: "ÜRETKEN YZ"
             },
-            deeplearning: {
-                role: 'Makine Öğrenimi Test Uzmanı',
-                desc: 'Öneri sistemi ile ilgili yapay zeka kodlarının test edilmesi. Bu proje için Tensorflow ve Python kullanıldı.',
+            p3: {
+                title: "Medikal AR Navigasyon Sistemi",
+                desc: "Cerrahi rehberlik için RGB-Derinlik sensör verilerini ameliyat öncesi MRI taramalarıyla birleştiren gerçek zamanlı 3D haritalama sistemi.",
+                tag: "MEDİKAL TEK."
             },
+            p4: {
+                title: "Gizlilik Odaklı Fizyo Asistanı",
+                desc: "Fizyoterapi için cihaz içi (on-device) mobil görüntü işleme sistemi. Bulut bağımlılığı olmadan vücut takibini yerelde yapar.",
+                tag: "UÇ YZ (EDGE AI)"
+            }
         },
         skills: {
-            title: 'Yetenekler',
-            technical: 'Teknik Yetenekler',
-            languages: 'Diller',
-            lang: {
-                english: 'İngilizce',
-                turkish: 'Türkçe',
-                advanced: 'İleri Seviye',
-                native: 'Anadil',
+            title: '// TEKNİK YETKİNLİKLER',
+            categories: {
+                // GÜNCELLENDİ: Türkçe karşılıkları
+                languages: 'ÇEKİRDEK & DİLLER',
+                frameworks: 'YZ & GÖRÜNTÜ İŞLEME',
+                tools: 'SİSTEM & ARAÇLAR'
             },
+            level: {
+                expert: 'Uzman',
+                proficient: 'Yetkin',
+                competent: 'Orta Seviye',
+                fundamental: 'Temel'
+            }
         },
-        contact: {
-            title: 'İletişime Geç',
-            description: 'Şu anda Bilgisayarlı Görü ve Yapay Zeka alanında yeni fırsatlara ve işbirliklerine açığım. Bir sorunuz varsa veya sadece merhaba demek istiyorsanız, çekinmeden ulaşın!',
+        education: {
+            title: '// AKADEMİK GEÇMİŞ',
+            hacettepe: {
+                school: 'Hacettepe Üniversitesi',
+                degree: 'Yüksek Lisans, Bilişim Sistemleri',
+                date: '2022 — 2024',
+                desc: 'Derin Öğrenme, Bilgisayarlı Görü ve İleri Veri Yapıları üzerine odaklanıldı.'
+            },
+            odtu: {
+                school: 'Orta Doğu Teknik Üniversitesi (ODTÜ)',
+                degree: 'Lisans, İnşaat Mühendisliği',
+                date: '2014 — 2021',
+                desc: 'Yapı mekaniği ve mühendislik matematiği üzerine güçlü bir analitik temel kazanıldı.'
+            }
         },
+        contactSection: {
+            title: '// İLETİŞİME GEÇ',
+            heading: 'Akıllı sistemler inşa etmeye hazır mısınız?',
+            desc: 'Şu anda Bilgisayarlı Görü ve Yapay Zeka Mühendisliği alanında yeni fırsatlara açığım. Bir sorunuz varsa veya sadece merhaba demek istiyorsanız, bana ulaşabilirsiniz.',
+            emailBtn: 'E-posta Gönder',
+            linkedinBtn: 'LinkedIn\'den Bağlan'
+        },
+        footer: {
+            name: 'RAMAZAN AYDINLI',
+            role: 'Yapay Zeka & Görüntü İşleme Mühendisi',
+            rights: 'Tüm hakları saklıdır.',
+            built: 'Next.js & Tailwind ile geliştirildi'
+        }
     },
 };

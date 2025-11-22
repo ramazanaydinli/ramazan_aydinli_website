@@ -1,41 +1,27 @@
-import { Github, Linkedin, Mail } from 'lucide-react';
+// components/layout/Footer.tsx
+"use client";
+
+import { useLanguage } from "@/context/LanguageContext";
 
 export function Footer() {
+    const { t } = useLanguage();
+    
     return (
-        <footer className="border-t border-white/10 bg-surface-50 py-12">
-            <div className="container mx-auto px-4 md:px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+        <footer className="w-full border-t border-white/5 bg-slate-950 relative z-10">
+            <div className="max-w-7xl mx-auto px-6 py-12 flex flex-col md:flex-row justify-between items-center gap-6">
+                
                 <div className="text-center md:text-left">
-                    <p className="text-sm text-muted-foreground">
-                        © {new Date().getFullYear()} Ramazan Aydinli. All rights reserved.
+                    <h2 className="text-xl font-bold text-slate-200 tracking-tight">
+                        {t.footer.name} {/* GÜNCELLENDİ: Dinamik İsim */}
+                    </h2>
+                    <p className="text-sm text-slate-500 font-mono mt-1">
+                        {t.footer.role} {/* GÜNCELLENDİ: Dinamik Rol */}
                     </p>
                 </div>
 
-                <div className="flex items-center gap-6">
-                    <a
-                        href="https://github.com/ramazanaydinli"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-muted-foreground hover:text-primary transition-colors"
-                    >
-                        <Github className="w-5 h-5" />
-                        <span className="sr-only">GitHub</span>
-                    </a>
-                    <a
-                        href="https://linkedin.com/in/ramazan-aydinli"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-muted-foreground hover:text-primary transition-colors"
-                    >
-                        <Linkedin className="w-5 h-5" />
-                        <span className="sr-only">LinkedIn</span>
-                    </a>
-                    <a
-                        href="mailto:ramazanaydinli94@gmail.com"
-                        className="text-muted-foreground hover:text-primary transition-colors"
-                    >
-                        <Mail className="w-5 h-5" />
-                        <span className="sr-only">Email</span>
-                    </a>
+                <div className="text-sm text-slate-600 font-mono text-center md:text-right">
+                    <p>© {new Date().getFullYear()} {t.footer.rights}</p>
+                    <p className="mt-1 opacity-50">{t.footer.built}</p>
                 </div>
             </div>
         </footer>

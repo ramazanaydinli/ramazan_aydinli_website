@@ -1,18 +1,15 @@
-'use client';
+// components/layout/Navbar.tsx
+"use client";
 
-import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import { clsx, type ClassValue } from 'clsx';
-import { twMerge } from 'tailwind-merge';
 import { useLanguage } from '@/context/LanguageContext';
-
-function cn(...inputs: ClassValue[]) {
-    return twMerge(clsx(inputs));
-}
+import { Globe, Menu, X } from 'lucide-react'; // Menu ve X ikonları eklendi
+import { motion, AnimatePresence } from 'framer-motion'; // Animasyon için
 
 export function Navbar() {
-    const [scrolled, setScrolled] = useState(false);
     const { language, setLanguage, t } = useLanguage();
+    const [scrolled, setScrolled] = useState(false);
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -22,51 +19,94 @@ export function Navbar() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    const navItems = [
-        { name: t.nav.about, href: '#about' },
-        { name: t.nav.experience, href: '#experience' },
+    // Menü linklerini bir diziye aldık, hem masaüstü hem mobilde kullanacağız
+    const navLinks = [
+        { name: t.nav.projects, href: '#projects' },
         { name: t.nav.skills, href: '#skills' },
+        { name: t.nav.background, href: '#background' }, // GÜNCELLENDİ
         { name: t.nav.contact, href: '#contact' },
     ];
 
     return (
-        <header
-            className={cn(
-                'fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-transparent',
-                scrolled ? 'bg-background/80 backdrop-blur-md border-white/10 py-4' : 'bg-transparent py-6'
-            )}
+        <header 
+            className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+                scrolled || mobileMenuOpen
+                ? 'bg-slate-950/80 backdrop-blur-md border-b border-white/5 py-4' 
+                : 'bg-transparent py-6'
+            }`}
         >
-            <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
-                <Link href="/" className="text-xl font-bold tracking-tighter flex items-center gap-2">
-                    <span className="text-primary">&lt;</span>
-                    Ramazan Aydinli
-                    <span className="text-primary">/&gt;</span>
-                </Link>
+            <div className="max-w-7xl mx-auto px-6 md:px-8 flex justify-between items-center font-mono text-sm">
+                
+                {/* SOL TARAF: Status Badge */}
+                <div className="flex items-center gap-3 z-50">
+                    <div className="relative flex items-center justify-center w-3 h-3">
+                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                         <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
+                    </div>
+                    <span className="text-slate-300 tracking-wide text-xs md:text-sm font-medium">
+                        {t.nav.status}
+                    </span>
+                </div>
 
-                <nav className="hidden md:flex items-center gap-8">
-                    {navItems.map((item) => (
-                        <Link
-                            key={item.name}
-                            href={item.href}
-                            className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
-                        >
-                            {item.name}
-                        </Link>
-                    ))}
+                {/* SAĞ TARAF (DESKTOP) */}
+                <div className="hidden md:flex items-center gap-8">
+                    <nav className="flex gap-6 text-slate-400">
+                        {navLinks.map((link) => (
+                            <a key={link.name} href={link.href} className="hover:text-white transition-colors text-xs tracking-widest">
+                                {link.name}
+                            </a>
+                        ))}
+                    </nav>
 
                     <button
                         onClick={() => setLanguage(language === 'en' ? 'tr' : 'en')}
-                        className="ml-4 px-3 py-1 rounded-full border border-white/10 bg-surface-100 text-xs font-mono hover:border-primary/50 transition-colors"
+                        className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-white/5 text-xs text-slate-300 hover:bg-white/10 hover:border-blue-500/50 hover:text-blue-400 transition-all group"
+                    >
+                        <Globe size={14} className="group-hover:rotate-180 transition-transform duration-500" />
+                        <span>{language === 'en' ? 'TR' : 'EN'}</span>
+                    </button>
+                </div>
+
+                {/* MOBİL MENÜ BUTONU */}
+                <div className="flex items-center gap-4 md:hidden z-50">
+                     <button
+                        onClick={() => setLanguage(language === 'en' ? 'tr' : 'en')}
+                        className="px-2 py-1 rounded border border-white/10 text-xs text-slate-300"
                     >
                         {language === 'en' ? 'TR' : 'EN'}
                     </button>
-                </nav>
 
-                <button className="md:hidden text-foreground">
-                    {/* Mobile menu icon placeholder */}
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="4" x2="20" y1="12" y2="12" /><line x1="4" x2="20" y1="6" y2="6" /><line x1="4" x2="20" y1="18" y2="18" /></svg>
-                </button>
+                    <button 
+                        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                        className="text-slate-300 hover:text-white"
+                    >
+                        {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                    </button>
+                </div>
             </div>
+
+            {/* MOBİL MENÜ OVERLAY */}
+            <AnimatePresence>
+                {mobileMenuOpen && (
+                    <motion.div
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -20 }}
+                        className="absolute top-full left-0 w-full bg-slate-950/95 backdrop-blur-xl border-b border-white/10 p-6 md:hidden flex flex-col gap-6 items-center text-center"
+                    >
+                        {navLinks.map((link) => (
+                            <a 
+                                key={link.name} 
+                                href={link.href} 
+                                onClick={() => setMobileMenuOpen(false)}
+                                className="text-slate-300 hover:text-blue-400 text-lg tracking-widest font-medium"
+                            >
+                                {link.name}
+                            </a>
+                        ))}
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </header>
     );
 }
